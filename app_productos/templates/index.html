@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Productos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        h1 { color: #333; text-align: center; }
+        .product-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+        .product-card h2 { color: #007bff; margin-top: 0; }
+        .product-card p { color: #555; margin-bottom: 5px; }
+        .product-card .price { font-weight: bold; color: #28a745; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <h1>Productos de Autozone Rolando Contreras</h1>
+
+    <div class="product-container">
+        {% if productos %}
+            {% for producto in productos %}
+                <div class="product-card">
+                    <h2>{{ producto.nombre }}</h2>
+                    <p class="price">Precio: ${{ producto.precio }}</p>
+                    <p>Stock Disponible: {{ producto.stock }} unidades</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay productos disponibles en este momento.</p>
+        {% endif %}
+    </div>
+
+    <p style="text-align: center; margin-top: 30px; color: #777;">
+        Gracias por visitar nuestra página.
+    </p>
+</body>
+</html>
